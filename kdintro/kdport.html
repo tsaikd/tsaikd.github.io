@@ -1,0 +1,85 @@
+<pre>
+<a href="//svn.tsaikd.org/gentoo/kdport/" target="_blank">kdport</a>
+
+因為 <a href="http://www.gentoo.org/">Gentoo</a> 內建的 portage 不是針對台灣設定的
+所以有時候需要稍微改一下 ebuild
+
+不過其實 kdport 的重點是 kdbashlib (<a href="//www.tsaikd.org/svn/kdport/app-shells/kdbashlib/ChangeLog">Changelog</a>)
+裡面有一些我常用的 bash script 或 bash function
+
+common.sh:tput()
+改寫內建的 tput 程式
+
+common.sh:kdread()
+進階版的 read
+可以用鍵盤的方向鍵來選擇 input 選項
+
+common.sh:readdef()
+進階版的 read
+可以設定 read return 的 timeout 跟預設值
+
+common.sh:pause()
+就像 Windows 系統的 pause
+
+convsize.sh:hsize()
+把數字轉成有單位的字串
+ex) 1024 ==&gt; 1k
+
+convsize.sh:msize()
+把有單位的字串轉成數字
+ex) 1k ==&gt; 1024
+
+exec.sh:EXEC()
+執行某個指令並限制輸出
+
+layout:  ${C_N} ${C_R} ${C_G} ${C_B} ${C_H} ${C_Y}
+顏色代碼  復原    紅     綠     藍     青     黃
+
+layout:set_quiet()
+設定輸出訊息過濾等級
+
+layout:einfo()
+顯示一般訊息
+
+layout:einfon()
+顯示一般訊息(不跳下一行)
+
+layout:ewarn()
+顯示警告訊息
+
+layout:eerror()
+顯示錯誤訊息
+
+layout:ebegin()
+顯示開始某段程序的訊息
+
+layout:eend()
+顯示結束某段程序的訊息
+
+layout:einfo_cb()
+在螢幕底端顯示一般訊息
+
+layout:einfon_cb()
+在螢幕底端顯示一般訊息(不跳下一行)
+
+rand.sh:rand()
+產生亂數
+
+tmpfile.sh:kdtmpfile()
+產生不重複的暫存檔
+
+url.sh:url_encode()
+將一般字串編碼成合法的網址字串
+
+url.sh:url_decode()
+將合法的網址字串解碼成一般字串
+
+url.sh:url_get_arg()
+從網址中取出變數值
+
+url.sh:url_append_arg()
+加入一個變數到網址中
+
+url.sh:url_remove_arg_all
+移除所有網址變數
+</pre>

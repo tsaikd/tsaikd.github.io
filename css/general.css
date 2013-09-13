@@ -1,0 +1,25 @@
+.showpre {
+	font-size: 17px;
+}
+
+.iframeshow {
+	width: 65%;
+	height: 95%;
+	position: absolute;
+	right: 0;
+	top: 5%;
+}
+
+a:link, a:visited {
+	color: blue;
+	text-decoration: none;
+}
+
+a:hover, a:active {
+	text-decoration: underline;
+}
+
+a:focus {
+	outline: none;
+}
+
