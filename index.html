@@ -1,62 +1,42 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!doctype html>
 <html lang="zh-TW">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>KD首頁</title>
-		<link href="/css/general.css" rel="stylesheet" type="text/css">
-		<style type="text/css">
-
-.del, a.del {
-	text-decoration: line-through;
-}
-
-td {
-	padding-right: 1em;
-}
-
-		</style>
-		<script src="/js/gooana.js" type="text/javascript"></script>
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+		<script src="js/gooana.js" type="text/javascript"></script>
 	</head>
 	<body>
-		<div style="text-align: center; margin-top: 80px; font-size: 50px;">
+		<div class="hidden-xs" style="text-align: center; margin-top: 80px; font-size: 55px;">
 			<div>tsaikd個人網頁</div>
 			<div>這是國王的網頁</div>
 			<div>聰明的人才看的到</div>
-		</div><br>
+		</div>
+		<div class="visible-xs" style="text-align: center; font-size: 40px;">
+			<div>tsaikd個人網頁</div>
+		</div>
 
-		<table style="margin-top: 20px; margin-left: auto; margin-right: auto; font-size: 35px;">
-			<tr>
-				<td class="del"><a href="//blog.tsaikd.org/">KD's Blog</a></td>
-				<td class="del"><a href="git/">KD's Git</a></td>
-				<td class="del"><a href="//svn.tsaikd.org/">KD's SVN</a></td>
-			</tr>
-			<tr>
-				<td class="del" style="font-size: 0.85em;" ID="td_bookmark"><a href="bookmark.php">KD's BookMark</a></td>
-				<td><a href="kdintro/">KD's Intro</a></td>
-				<td class="del"><a href="//pic.tsaikd.org/">KD's Gallery</a></td>
-			</tr>
-			<tr>
-				<td ID="td_hudson" class="del"><a href="hudson/">KD's Hudson</a></td>
-				<td style="font-size: 25px;" ID="td_kdport" class="del"><a href="kdport/">KD's Gentoo Portage</a></td>
-				<td class="del"><a href="http://www.tsaikd.org/~tsaikd/KDDict/">真 KD 字典</a></td>
-			</tr>
-		</table>
+		<div class="container">
+			<div class="hidden-xs" style="height: 50px;"></div>
+			<div class="row" style="font-size: 40px; margin-top: 20px;">
+				<div class="col-md-3 col-md-offset-2 col-sm-4"><a href="blog/">KD's Blog</a></div>
+				<div class="col-md-3 col-sm-4"><a href="kdintro/">KD's Intro</a></div>
+				<div class="col-md-3 col-sm-4"><a href="https://github.com/tsaikd">KD's Git</a></div>
+			</div>
 
-		<div style="text-align: center; width: 780px; margin-top: 40px; margin-left: auto; margin-right: auto; font-size: 15px;">
-			<div style="float: left; width: 200px;">
-				<a href="http://www.google.com/analytics/">Google Analytics</a>
-				<a class="del" href="mrtg/">MRTG</a><BR>
-				<a class="del" href="rrd/">rrdtool</a>
-			</div>
-			<div style="width: 200px; float: left; margin-left: 100px;">
-				<a href="http://www.flickr.com/photos/tsaikd/">KD Flickr</a>
-				<a href="http://www.google.com/calendar/embed?src=tsaikd%40gmail.com">KD行事曆</a>
-				<BR />
-			</div>
-			<div style="float: right;">
-				<a href="http://mail.ncku.edu.tw/">NCKU</a>
-				<a href="http://mail.pchome.com.tw/">PCmail</a>
-				<a href="https://mail.google.com/mail/">Gmail</a>
+			<div class="hidden-xs" style="height: 50px;"></div>
+			<div class="row" style="font-size: 15px; margin-top: 20px;">
+				<div class="col-md-2 col-md-offset-1 col-sm-3"><a href="http://www.google.com/analytics/">Google Analytics</a></div>
+				<div class="col-md-5 col-md-offset-1 col-sm-6">
+					<div class="row">
+						<div class="col-md-3 col-sm-4"><a href="http://www.flickr.com/photos/tsaikd/">KD Flickr</a></div>
+						<div class="col-md-3 col-sm-4"><a href="http://www.google.com/calendar/embed?src=tsaikd%40gmail.com">KD 行事曆</a></div>
+						<div class="col-md-4 col-sm-4"><a href="https://www.facebook.com/tsaikd">KD Facebook</a></div>
+					</div>
+				</div>
+				<div class="col-md-2 col-md-offset-1 col-sm-3"><a href="https://mail.google.com/mail/">Gmail</a></div>
 			</div>
 		</div>
 	</body>
