@@ -1,13 +1,14 @@
 <!doctype html>
 <html lang="zh-TW">
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 		<title>KD簡介</title>
-		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css"/>
 		<style type="text/css">
-ul, li {
-	margin: 0;
+.nav>li>a {
+	padding: 0px 10px;
 }
 
 div.showBlock {
@@ -35,8 +36,9 @@ div.showBlock {
 	cursor: pointer;
 }
 		</style>
-		<script src="/js/gooana.js" type="text/javascript"></script>
+		<script src="../js/gooana.js" type="text/javascript"></script>
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 		<script type="text/javascript">
 $(function() {
 	$("body")
@@ -44,6 +46,7 @@ $(function() {
 			var tar = $(this).next();
 			if (tar.data("loaded")) {
 				tar.toggle();
+				$("[data-spy=scroll]").scrollspy("refresh");
 			}
 			tar.data("loaded", true);
 
@@ -53,68 +56,153 @@ $(function() {
 				url: url,
 				success: function(d) {
 					tar.html(d);
+					$("[data-spy=scroll]").scrollspy("refresh");
 				}
 			});
+		});
+
+	$(".show-all-proj, .hide-all-proj")
+		.on("click", function() {
+			$(".show-all-proj, .hide-all-proj").toggle();
+		});
+	$(".show-all-proj")
+		.on("click", function() {
+			$(".projlink").each(function() {
+				var $link = $(this);
+				var $data = $link.next();
+				if ($data.data("loaded")) {
+					$data.show();
+				} else{
+					$link.click();
+				}
+			});
+		});
+	$(".hide-all-proj")
+		.on("click", function() {
+			$(".projlink").each(function() {
+				$(this).next().hide();
+			});
+		});
+
+	$(".glyphicon-resize-small")
+		.on("click", function() {
+			$(this).toggleClass("glyphicon-resize-small glyphicon-resize-full")
 		});
 });
 		</script>
 	</head>
-	<body>
+	<body data-spy="scroll" data-target="#navbar">
 		<div style="font-size: 20px; width: 900px; margin-left: auto; margin-right: auto; text-align: left; border: solid 1px;">
-			<div style="color: white; background-color: #5d4b97; text-align: center; font-size: 2.5em; padding-top: 5px; padding-bottom: 5px;">蔡程豐 (tsaikd)</div>
+			<nav id="navbar" class="navbar navbar-default bs-js-navbar-scrollspy visible-md visible-lg" style="position: fixed; right: 10px; bottom: 10px; opacity: 0.85;">
+				<ul id="navdata" class="nav nav-pills nav-stacked collapse in">
+					<li><a href="#school">學歷</a></li>
+					<li><a href="#job">經歷</a></li>
+					<li><a href="#golanghtmljs">Golang HTML Javascript</a></li>
+					<li><a href="#golang">Golang</a></li>
+					<li><a href="#javahtmljs">Java HTML Javascript</a></li>
+					<li><a href="#nodejs">NodeJs</a></li>
+					<li><a href="#js">Javascript</a></li>
+					<li><a href="#qt">Qt</a></li>
+					<li><a href="#mfc">MFC</a></li>
+					<li><a href="#ccpp">C/C++</a></li>
+					<li><a href="#phphtmljs">PHP HTML Javascript</a></li>
+					<li><a href="#autoit">AutoIt v3</a></li>
+					<li><a href="#bash">bash</a></li>
+				</ul>
+				<div data-toggle="collapse" href="#navdata"><span class="glyphicon glyphicon-resize-small" style="position: absolute; right: 5px; top: 2px;"></span></div>
+			</nav>
+			<div id="top" style="color: white; background-color: #5d4b97; text-align: center; font-size: 2.5em; padding-top: 5px; padding-bottom: 5px;">蔡程豐 (tsaikd)</div>
 			<div style="float: right;">
-				<img style="border: none; width: 224px; height: 300px;" src="pic.jpg"/>
+				<img style="width: 224px; height: 300px;" src="pic.jpg"/>
 			</div>
 			<div class="block">
-				<ul>學歷：
+				<ul id="school">學歷：
 					<li>西光幼稚園</li>
 					<li>中山國小</li>
 					<li><a class="outlink" target="_blank" href="http://www.shsh.ylc.edu.tw/">正心中學初中部</a></li>
 					<li><a class="outlink" target="_blank" href="http://www.shsh.ylc.edu.tw/">正心中學高中部</a></li>
-					<li><a class="outlink" target="_blank" href="http://www.ncku.edu.tw/">成功大學</a><a class="outlink" target="_blank" href="http://www.csie.ncku.edu.tw/">資訊工程學系</a></li>
+					<li><a class="outlink" target="_blank" href="http://www.ncku.edu.tw/">成功大學</a><a class="outlink" target="_blank" href="http://www.csie.ncku.edu.tw/">資訊工程學系</a> (2003~2007)</li>
 				</ul>
-				<ul>經歷：
-					<li><a class="outlink" target="_blank" href="http://www.foxconn.com.tw/">鴻海科技集團</a>-法務總處(智權營運總處)-科法資訊處</li>
-					<li><a class="outlink" target="_blank" href="http://www.foxconn.com.tw/">鴻海科技集團</a>-智權總處-創新系統發展處</li>
-					<li>賽恩倍吉集團 (其實跟前兩個是同一個單位...=.=)</li>
+				<ul id="job">經歷：
+					<li><a class="outlink" target="_blank" href="http://www.foxconn.com.tw/">鴻海科技集團</a>-法務總處(智權營運總處)-科法資訊處 (2008~2013)</li>
+					<li><a class="outlink" target="_blank" href="http://www.foxconn.com.tw/">鴻海科技集團</a>-智權總處-創新系統發展處 (2008~2013)</li>
+					<li>賽恩倍吉集團 (2008~2013) (其實跟前兩個是同一個單位...=.=)</li>
+					<li><a class="outlink" target="_blank" href="https://www.facebook.com/pages/%E6%97%BA%E6%97%BA%E4%B8%AD%E6%99%82%E5%AA%92%E9%AB%94%E9%9B%86%E5%9C%98Want-Want-China-Times-Group/261486240552732">旺旺中時媒體集團</a> (2013~)</li>
 				</ul>
 			</div>
-			<div class="block">
-				<ul>作品：(Java)
+			<div style="margin-top: 1em;"></div>
+			<div style="margin-left: 1em;">
+				<button class="show-all-proj btn btn-primary">展開所有作品</button>
+				<button class="hide-all-proj btn btn-primary" style="display: none;">收合所有作品</button>
+			</div>
+			<div id="golanghtmljs" class="block">
+				<ul>作品：(Golang HTML Javascript)
+					<li><span class="projlink" url="GoForumReader.html">GoForumReader</span><div></div></li>
+				</ul>
+			</div>
+			<div id="golang" class="block">
+				<ul>作品：(Golang)
+					<li><span class="projlink" url="GoConv.html">GoConv</span><div></div></li>
+				</ul>
+			</div>
+			<div id="javahtmljs" class="block">
+				<ul>作品：(Java HTML Javascript)
+					<li><span class="projlink" url="ForumReader.html">ForumReader</span><div></div></li>
 					<li><span class="projlink" url="PicMgr.html">PicMgr</span><div></div></li>
+					<li><span class="projlink" url="KDJLib.html">KDJLib</span><div></div></li>
 				</ul>
 			</div>
-			<div class="block">
+			<div id="nodejs" class="block">
+				<ul>作品：(NodeJs)
+					<li><span class="projlink" url="queryReader.html">queryReader</span><div></div></li>
+				</ul>
+			</div>
+			<div id="js" class="block">
+				<ul>作品：(Javascript)
+					<li><span class="projlink" url="greasemonkey.html">greasemonkey</span><div></div></li>
+				</ul>
+			</div>
+			<div id="qt" class="block">
 				<ul>作品：(Qt)
 					<li><span class="projlink" url="ExchangeAlert.html">ExchangeAlert</span><div></div></li>
 					<li><span class="projlink" url="KDWall.html">KDWall</span><div></div></li>
+					<li><span class="projlink" url="FIBCLite.html">FIBCLite</span><div></div></li>
+					<li><span class="projlink" url="OrderMealClient.html">OrderMealClient</span><div></div></li>
 				</ul>
 			</div>
-			<div class="block">
+			<div id="mfc" class="block">
 				<ul>作品：(MFC)
 					<li><span class="projlink" url="KDLib.html">KDLib</span><div></div></li>
 					<li><span class="projlink" url="MagicKD.html">MagicKD</span><div></div></li>
 					<li><span class="projlink" url="KDUpdater.html">KDUpdater</span><div></div></li>
 				</ul>
 			</div>
-			<div class="block">
-				<ul>作品：(HTML PHP Javascript)
+			<div id="ccpp" class="block">
+				<ul>作品：(C/C++)
+					<li><span class="projlink" url="hh264.html">hh264</span><div></div></li>
+				</ul>
+			</div>
+			<div id="phphtmljs" class="block">
+				<ul>作品：(PHP HTML Javascript)
 					<li><span class="projlink" url="KDBlog.html">KDBlog</span><div></div></li>
 					<li><span class="projlink" url="KDGallery.html">KDGallery</span><div></div></li>
 				</ul>
 			</div>
-			<div class="block">
+			<div id="autoit" class="block">
 				<ul>作品：(AutoIt v3)
 					<li><span class="projlink" url="KDBlogWriter.html">KDBlogWriter</span><div></div></li>
 					<li><span class="projlink" url="KDPicMover.html">KDPicMover</span><div></div></li>
 					<li><span class="projlink" url="Travian Bot.html">Travian Bot</span><div></div></li>
 				</ul>
 			</div>
-			<div class="block">
+			<div id="bash" class="block">
 				<ul>作品：(bash)
+					<li><span class="projlink" url="script.html">script</span><div></div></li>
+					<li><span class="projlink" url="bash.html">bash config</span><div></div></li>
 					<li><span class="projlink" url="kdport.html">kdport</span><div></div></li>
 					<li><span class="projlink" url="resize_lvm_with_reiserfs.html">resize_lvm_with_reiserfs</span><div></div></li>
 					<li><span class="projlink" url="firewall.html">firewall</span><div></div></li>
+					<li><span class="projlink" url="deploy.html">deploy</span><div></div></li>
 				</ul>
 			</div>
 		</div>
