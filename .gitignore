@@ -1,3 +1,8 @@
+/.tmp/
+/node_modules/
+/lib/jquery/
+*.ngtpl.tmp.js
+
 /assets
 /blog
 /blogsrc

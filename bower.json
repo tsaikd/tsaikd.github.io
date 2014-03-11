@@ -1,0 +1,23 @@
+{
+  "name": "www.tsaikd.org",
+  "version": "0.0.1",
+  "homepage": "https://github.com/tsaikd/www.tsaikd.org",
+  "authors": [
+    "tsaikd <tsaikd@gmail.com>"
+  ],
+  "description": "tsaikd web site",
+  "keywords": [
+    "tsaikd",
+    "homepage"
+  ],
+  "license": "LGPLv3",
+  "dependencies": {
+    "bootstrap": ">=3",
+    "angular": ">=1.2",
+    "angular-translate": ">=2",
+    "angular-local-storage": null
+  },
+  "main": [
+    "index.html"
+  ]
+}

@@ -7,12 +7,24 @@
 		<title translate>KD's Homepage</title>
 		<link rel="shortcut icon" href="favicon.ico">
 		<link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
-		<link rel="stylesheet" href="index/index.min.css"/>
+		<!-- build:css index/index.min.css -->
+		<link rel="stylesheet" href="index/index.css">
+		<!-- endbuild -->
 		<script src="lib/angular/angular.js"></script>
-		<script src="index/index.min.js"></script>
+		<!-- build:js index/index.min.js -->
+		<script src="lib/ga.js"></script>
+		<script src="lib/angular-local-storage/angular-local-storage.js"></script>
+		<script src="lib/angular-translate/angular-translate.js"></script>
+		<script src="lib/base.js"></script>
+		<script src="lib/locale.js"></script>
+		<script src="index/index.js"></script>
+		<!-- no load in dev mode
+		<script src="index/index.ngtpl.tmp.js"></script>
+		-->
+		<!-- endbuild -->
 	</head>
 	<body ng-controller="IndexCtrl">
-		<select ng-model="locale" ng-options="lang.id as lang.name for lang in locales" ng-change="updateLocale()" class="form-control input-sm" style="width: auto; position: absolute; right: 1em; top: 1em;"></select>
+		<select ng-controller="LocaleCtrl" ng-model="locale" ng-options="lang.id as lang.name for lang in locales" ng-change="updateLocale()" class="form-control input-sm" style="width: auto; position: absolute; right: 1em; top: 1em;"></select>
 		<div class="hidden-xs" style="text-align: center; margin-top: 80px; font-size: 55px;">
 			<div translate>tsaikd's Homepage</div>
 			<div>這是國王的網頁</div>
