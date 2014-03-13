@@ -15,7 +15,8 @@
     "bootstrap": ">=3",
     "angular": ">=1.2",
     "angular-translate": ">=2",
-    "angular-local-storage": null
+    "angular-local-storage": null,
+    "TimelineJS": ">=0"
   },
   "main": [
     "index.html"

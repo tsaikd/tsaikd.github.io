@@ -1,6 +1,8 @@
 /.tmp/
 /node_modules/
-/lib/jquery/
+/lib/jquery/src/
+/lib/TimelineJS/source/
+/lib/TimelineJS/website/
 *.ngtpl.tmp.js
 
 /assets
