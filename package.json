@@ -16,6 +16,7 @@
     "grunt-usemin": ">=2",
     "grunt-angular-templates": ">=0",
     "grunt-sync-pkg": ">=0",
+    "grunt-sitemap": ">=0",
     "load-grunt-tasks": ">=0"
   },
   "author": "tsaikd <tsaikd@gmail.com>",

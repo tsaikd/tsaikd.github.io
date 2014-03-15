@@ -8,16 +8,23 @@
 		<title translate>KD's Homepage</title>
 		<link rel="shortcut icon" href="favicon.ico">
 		<link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
-		<link rel="stylesheet" href="index/index.min.css"/>
+		<link rel="stylesheet" href="index/main.min.css"/>
 		<script src="lib/angular/angular.js"></script>
-		<script src="index/index.min.js"></script>
+		<script src="index/main.min.js"></script>
 	</head>
 	<body ng-controller="IndexCtrl">
 		<select ng-controller="LocaleCtrl" ng-model="locale" ng-options="lang.id as lang.name for lang in locales" ng-change="updateLocale()" class="form-control input-sm" style="width: auto; position: absolute; right: 1em; top: 1em;"></select>
 		<div class="hidden-xs" style="text-align: center; margin-top: 80px; font-size: 55px;">
-			<div translate>tsaikd's Homepage</div>
-			<div>這是國王的網頁</div>
-			<div>聰明的人才看的到</div>
+			<div ng-show="locale == 'en'" style="display: none;">
+				<div>&nbsp;</div>
+				<div translate>tsaikd's Homepage</div>
+				<div>&nbsp;</div>
+			</div>
+			<div ng-show="locale != 'en'">
+				<div translate>tsaikd's Homepage</div>
+				<div>這是國王的網頁</div>
+				<div>聰明的人才看的到</div>
+			</div>
 		</div>
 		<div class="visible-xs" style="font-size: 40px; padding-left: 15px;">
 			<div translate>tsaikd's Homepage</div>
@@ -27,7 +34,9 @@
 			<div class="hidden-xs" style="height: 50px;"></div>
 			<div class="row" style="font-size: 40px; margin-top: 20px;">
 				<div class="col-md-3 col-md-offset-2 col-sm-4"><a href="blog/" ng-click="track('blog')">KD's Blog</a></div>
-				<div class="col-md-3 col-sm-4"><a href="kdintro.html" ng-click="track('intro')">KD's Intro</a></div>
+				<div class="col-md-3 col-sm-4">
+					<a ng-click="track('intro')" href="kdintroplain.html">KD's Intro</a>
+				</div>
 				<div class="col-md-3 col-sm-4"><a href="https://github.com/tsaikd" ng-click="track('git')">KD's Git</a></div>
 			</div>
 
@@ -43,6 +52,16 @@
 				</div>
 				<div class="col-md-2 col-md-offset-1 col-sm-3"><a href="https://mail.google.com/mail/" ng-click="track('gmail')">Gmail</a></div>
 			</div>
+		</div>
+		<div ng-show="!!loading" style="position: fixed; width: 100%; height: 100%; top: 0px; left: 0px;">
+			<div style="position: fixed; width: 100%; height: 100%; top: 0px; left: 0px; background: #fff;"></div>
+			<table style="position: fixed; width: 100%; height: 100%; top: 0px; left: 0px;">
+				<tr>
+					<td style="text-align: center;">
+						<img src="index/loading.png" class="spinner active" style="width: 128px; height: 128px;"/>
+					</td>
+				</tr>
+			</table>
 		</div>
 	</body>
 </html>

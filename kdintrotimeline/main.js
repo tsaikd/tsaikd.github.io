@@ -1,5 +1,12 @@
 app
 
+.run([        "$translate"
+	, function($translate) {
+
+	$translate.use("zh_tw");
+
+}])
+
 // ref: https://github.com/NUKnightLab/TimelineJS
 .controller("IntroCtrl"
 	, [     "$scope",
@@ -71,13 +78,9 @@ app
 		hash_bookmark: true
 	});
 
-	(function fixStory() {
-		if (!$(".vco-storyjs .slider-item .content:first").length) {
-			setTimeout(fixStory, 1000);
-			return;
-		}
-		$(".vco-storyjs a").attr("target", "_blank");
-	})();
+	$("body").on("click", "a:not([target])", function() {
+		$(this).attr("target", "_blank");
+	});
 
 }])
 

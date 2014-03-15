@@ -1,0 +1,684 @@
+<!doctype html>
+<html lang="zh-TW" ng-app="app">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title translate>KD Introduction</title>
+		<link rel="shortcut icon" href="favicon.ico">
+		<link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
+		<!-- build:css kdintroplain/main.min.css -->
+		<link rel="stylesheet" href="kdintroplain/main.css">
+		<!-- endbuild -->
+		<script src="lib/jquery/dist/jquery.min.js"></script>
+		<script src="lib/angular/angular.js"></script>
+		<!-- build:js kdintroplain/main.min.js -->
+		<script src="lib/ga.js"></script>
+		<script src="lib/angular-local-storage/angular-local-storage.js"></script>
+		<script src="lib/angular-translate/angular-translate.js"></script>
+		<script src="lib/app.js"></script>
+		<script src="lib/locale.js"></script>
+		<script src="kdintroplain/main.js"></script>
+		<!-- no load in dev mode
+		<script src="kdintroplain/angular-template.tmp.js"></script>
+		-->
+		<!-- endbuild -->
+	</head>
+	<body ng-controller="IntroPlainCtrl">
+		<select ng-controller="LocaleCtrl" ng-model="locale" ng-options="lang.id as lang.name for lang in locales" ng-change="updateLocale()" class="form-control input-sm pull-right" style="width: auto; margin-top: 14px; margin-right: 14px;"></select>
+		<div class="pull-right" style="margin-right: 15px; margin-top: 18px;">
+			<a class="btn btn-primary btn-xs" href="kdintro/" target="_self" translate>Old Version</a>
+		</div>
+		<a href=".">
+			<div style="color: white; background-color: #5d4b97; text-align: center; font-size: 34px; padding-top: 5px; padding-bottom: 5px;" translate>Cheng-Feng Tsai (tsaikd)</div>
+		</a>
+		<div class="center-block" style="max-width: 1280px; padding: 0.5em 1em;">
+			<div class="hidden-xs" style="float: right;">
+				<img style="width: 224px; height: 300px;" src="kdintro/pic.jpg"/>
+			</div>
+			<div class="visible-xs" style="text-align: center;">
+				<img style="width: 224px; height: 300px;" src="kdintro/pic.jpg"/>
+			</div>
+			<div class="block">
+				<div class="block-header">
+					<span translate>Base Information</span>
+				</div>
+				<table class="table table-hover table-condensed table-responsive" style="width: auto; min-width: 10em;">
+					<tbody>
+						<tr>
+							<th translate>Name</th>
+							<td translate>Cheng-Feng Tsai</td>
+						</tr>
+						<tr>
+							<th translate>Nickname</th>
+							<td>KD</td>
+						</tr>
+						<tr>
+							<th translate>Gender</th>
+							<td translate>Male</td>
+						</tr>
+						<tr>
+							<th translate>Date of Birth</th>
+							<td>1985</td>
+						</tr>
+						<tr>
+							<th translate>Nationality</th>
+							<td translate>Taiwan</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="block">
+				<div class="block-header">
+					<span translate>Education</span>
+				</div>
+				<ul>
+					<li>
+						<a href="http://www.ncku.edu.tw/" translate>National Cheng Kung University</a>
+						<ul>
+							<li>
+								<a href="http://www.csie.ncku.edu.tw/" translate>Computer Science and Information Engineering</a>
+								<ul>
+									<li>
+										<span translate>Bachelor of Engineering</span>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<div class="block">
+				<div class="block-header">
+					<span translate>Work Experience</span>
+				</div>
+				<ul>
+					<li>
+						<a href="http://www.foxconn.com.tw/" translate>Foxconn</a>
+						<span>(2008 ~ 2013)</span>
+					</li>
+					<li>
+						<a href="https://www.facebook.com/pages/%E6%97%BA%E6%97%BA%E4%B8%AD%E6%99%82%E5%AA%92%E9%AB%94%E9%9B%86%E5%9C%98Want-Want-China-Times-Group/261486240552732" translate>Want-Want-China-Times-Group</a>
+						<span>(2013 ~ <span translate>today</span>)</span>
+					</li>
+				</ul>
+			</div>
+			<div class="block">
+				<div class="block-header">
+					<span translate>Skill and Ability</span>
+				</div>
+				<ul style="display: inline-block;">
+					<li>
+						<span translate>Language ability</span>
+						<ul>
+							<li>
+								<span translate>English</span>
+								<ul>
+									<li>
+										<div class="pull-right" style="margin-left: 2em;">
+											<span class="glyphicon glyphicon-star"></span>
+										</div>
+										<span translate>Speek</span>
+									</li>
+									<li>
+										<div class="pull-right" style="margin-left: 2em;">
+											<span class="glyphicon glyphicon-star"></span>
+											<span class="glyphicon glyphicon-star"></span>
+										</div>
+										<span translate>Read</span>
+									</li>
+									<li>
+										<div class="pull-right" style="margin-left: 2em;">
+											<span class="glyphicon glyphicon-star"></span>
+										</div>
+										<span translate>Write</span>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<span translate>Chinese</span>
+								(<span translate>Native</span>)
+								<ul>
+									<li>
+										<div class="pull-right" style="margin-left: 2em;">
+											<span class="glyphicon glyphicon-star"></span>
+											<span class="glyphicon glyphicon-star"></span>
+											<span class="glyphicon glyphicon-star"></span>
+											<span class="glyphicon glyphicon-star"></span>
+											<span class="glyphicon glyphicon-star"></span>
+										</div>
+										<span translate>Speek</span>
+									</li>
+									<li>
+										<div class="pull-right" style="margin-left: 2em;">
+											<span class="glyphicon glyphicon-star"></span>
+											<span class="glyphicon glyphicon-star"></span>
+											<span class="glyphicon glyphicon-star"></span>
+											<span class="glyphicon glyphicon-star"></span>
+											<span class="glyphicon glyphicon-star"></span>
+										</div>
+										<span translate>Read</span>
+									</li>
+									<li>
+										<div class="pull-right" style="margin-left: 2em;">
+											<span class="glyphicon glyphicon-star"></span>
+											<span class="glyphicon glyphicon-star"></span>
+											<span class="glyphicon glyphicon-star"></span>
+											<span class="glyphicon glyphicon-star"></span>
+										</div>
+										<span translate>Write</span>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<span translate>Taiwanese</span>
+								<ul>
+									<li>
+										<div class="pull-right" style="margin-left: 2em;">
+											<span class="glyphicon glyphicon-star"></span>
+											<span class="glyphicon glyphicon-star"></span>
+											<span class="glyphicon glyphicon-star"></span>
+										</div>
+										<span translate>Speek</span>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<span translate>Computer Theory</span>
+						<ul>
+							<li>
+								<div class="pull-right" style="margin-left: 2em;">
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+								</div>
+								<span translate>Network</span>
+							</li>
+							<li>
+								<div class="pull-right" style="margin-left: 2em;">
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+								</div>
+								<span translate>Data Structure</span>
+							</li>
+							<li>
+								<div class="pull-right" style="margin-left: 2em;">
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+								</div>
+								<span translate>Cryptography</span>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<span translate>Using Operating System</span>
+						<ul>
+							<li>
+								<div class="pull-right" style="margin-left: 2em;">
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+								</div>
+								<span>Ubuntu</span>
+							</li>
+							<li>
+								<div class="pull-right" style="margin-left: 2em;">
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+								</div>
+								<span>ArchLinux</span>
+							</li>
+							<li>
+								<div class="pull-right" style="margin-left: 2em;">
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+								</div>
+								<span>CentOS</span>
+							</li>
+							<li>
+								<div class="pull-right" style="margin-left: 2em;">
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+								</div>
+								<span>Gentoo</span>
+							</li>
+							<li>
+								<div class="pull-right" style="margin-left: 2em;">
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+								</div>
+								<span>Windows</span>
+							</li>
+							<li>
+								<div class="pull-right" style="margin-left: 2em;">
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+								</div>
+								<span>Mac</span>
+							</li>
+							<li>
+								<div class="pull-right" style="margin-left: 2em;">
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+								</div>
+								<span>iOS</span>
+							</li>
+							<li>
+								<div class="pull-right" style="margin-left: 2em;">
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+								</div>
+								<span>Android</span>
+							</li>
+							<li>
+								<div class="pull-right" style="margin-left: 2em;">
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+								</div>
+								<span>FreeBSD</span>
+							</li>
+							<li>
+								<div class="pull-right" style="margin-left: 2em;">
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+								</div>
+								<span>Openmoko</span>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<span translate>Virtual Machine</span>
+						<ul>
+							<li>
+								<div class="pull-right" style="margin-left: 2em;">
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+								</div>
+								<span>Virtualbox</span>
+							</li>
+							<li>
+								<div class="pull-right" style="margin-left: 2em;">
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+								</div>
+								<span>KVM</span>
+							</li>
+							<li>
+								<div class="pull-right" style="margin-left: 2em;">
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+								</div>
+								<span>VMWare</span>
+							</li>
+							<li>
+								<div class="pull-right" style="margin-left: 2em;">
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+								</div>
+								<span>Docker</span>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<span translate>Programming Language</span>
+						<ul>
+							<li>
+								<div class="pull-right" style="margin-left: 2em;">
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+								</div>
+								<span>C/C++</span>
+							</li>
+							<li>
+								<div class="pull-right" style="margin-left: 2em;">
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+								</div>
+								<span>Java</span>
+							</li>
+							<li>
+								<div class="pull-right" style="margin-left: 2em;">
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+								</div>
+								<span>Javascript</span>
+							</li>
+							<li>
+								<div class="pull-right" style="margin-left: 2em;">
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+								</div>
+								<span>HTML</span>
+							</li>
+							<li>
+								<div class="pull-right" style="margin-left: 2em;">
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+								</div>
+								<span>CSS</span>
+							</li>
+							<li>
+								<div class="pull-right" style="margin-left: 2em;">
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+								</div>
+								<span>Shell Script</span>
+								<span>(Bash)</span>
+							</li>
+							<li>
+								<div class="pull-right" style="margin-left: 2em;">
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+								</div>
+								<span>Go (Golang)</span>
+							</li>
+							<li>
+								<div class="pull-right" style="margin-left: 2em;">
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+								</div>
+								<span>C#</span>
+							</li>
+							<li>
+								<div class="pull-right" style="margin-left: 2em;">
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+								</div>
+								<span>Python</span>
+							</li>
+							<li>
+								<div class="pull-right" style="margin-left: 2em;">
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+								</div>
+								<span>PHP</span>
+							</li>
+							<li>
+								<div class="pull-right" style="margin-left: 2em;">
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+								</div>
+								<span>SQL</span>
+							</li>
+							<li>
+								<div class="pull-right" style="margin-left: 2em;">
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+								</div>
+								<span>AutoIt</span>
+							</li>
+							<li>
+								<div class="pull-right" style="margin-left: 2em;">
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+								</div>
+								<span>Markdown</span>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<span translate>Framework and Library</span>
+						<ul>
+							<li>
+								<div class="pull-right" style="margin-left: 2em;">
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+								</div>
+								<span>AngularJS</span>
+							</li>
+							<li>
+								<div class="pull-right" style="margin-left: 2em;">
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+								</div>
+								<span>jQuery</span>
+							</li>
+							<li>
+								<div class="pull-right" style="margin-left: 2em;">
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+								</div>
+								<span>Bootstrap</span>
+							</li>
+							<li>
+								<div class="pull-right" style="margin-left: 2em;">
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+								</div>
+								<span>Qt</span>
+							</li>
+							<li>
+								<div class="pull-right" style="margin-left: 2em;">
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+								</div>
+								<span>OpenCV</span>
+							</li>
+							<li>
+								<div class="pull-right" style="margin-left: 2em;">
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+								</div>
+								<span>LIRE</span>
+							</li>
+							<li>
+								<div class="pull-right" style="margin-left: 2em;">
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+								</div>
+								<span>eXo Platform</span>
+							</li>
+							<li>
+								<div class="pull-right" style="margin-left: 2em;">
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+								</div>
+								<span>Activity BPM</span>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<span translate>Development tools</span>
+						<ul>
+							<li>
+								<div class="pull-right" style="margin-left: 2em;">
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+								</div>
+								<span>Git</span>
+							</li>
+							<li>
+								<div class="pull-right" style="margin-left: 2em;">
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+								</div>
+								<span>SVN</span>
+							</li>
+							<li>
+								<div class="pull-right" style="margin-left: 2em;">
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+								</div>
+								<span>Maven</span>
+							</li>
+							<li>
+								<div class="pull-right" style="margin-left: 2em;">
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+								</div>
+								<span>Gradle</span>
+							</li>
+							<li>
+								<div class="pull-right" style="margin-left: 2em;">
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+								</div>
+								<span>Npm</span>
+							</li>
+							<li>
+								<div class="pull-right" style="margin-left: 2em;">
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+								</div>
+								<span>Grunt</span>
+							</li>
+							<li>
+								<div class="pull-right" style="margin-left: 2em;">
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+								</div>
+								<span>Bower</span>
+							</li>
+							<li>
+								<div class="pull-right" style="margin-left: 2em;">
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+								</div>
+								<span>Doxygen</span>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<span translate>Database and Index</span>
+						<ul>
+							<li>
+								<div class="pull-right" style="margin-left: 2em;">
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+								</div>
+								<span>MongoDB</span>
+							</li>
+							<li>
+								<div class="pull-right" style="margin-left: 2em;">
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+								</div>
+								<span>OracleDB</span>
+							</li>
+							<li>
+								<div class="pull-right" style="margin-left: 2em;">
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+								</div>
+								<span>MySQL</span>
+							</li>
+							<li>
+								<div class="pull-right" style="margin-left: 2em;">
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+								</div>
+								<span>SQLite</span>
+							</li>
+							<li>
+								<div class="pull-right" style="margin-left: 2em;">
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+								</div>
+								<span>Apache Lucene</span>
+							</li>
+							<li>
+								<div class="pull-right" style="margin-left: 2em;">
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+								</div>
+								<span>Apache Solr</span>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<div class="block">
+				<div class="block-header">
+					<span translate>Projects</span>
+					(<a href="kdintrotimeline.html" translate>Detail</a>)
+				</div>
+				<ul>
+					<li>
+						<span>H.264 Decoder</span>
+					</li>
+					<li>
+						<a href="http://www.patentcloud.com/">PatentCloud</a>
+					</li>
+					<li>
+						<a href="http://tsaikd.github.io/kdocker-web/">KDocker-Web</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div ng-show="!!loading" style="position: fixed; width: 100%; height: 100%; top: 0px; left: 0px;">
+			<div style="position: fixed; width: 100%; height: 100%; top: 0px; left: 0px; background: #fff;"></div>
+			<table style="position: fixed; width: 100%; height: 100%; top: 0px; left: 0px;">
+				<tr>
+					<td style="text-align: center;">
+						<img src="index/loading.png" class="spinner active" style="width: 128px; height: 128px;"/>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</body>
+</html>

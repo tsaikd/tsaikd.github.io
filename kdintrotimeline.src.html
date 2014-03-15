@@ -8,40 +8,32 @@
 		<link rel="shortcut icon" href="favicon.ico">
 		<link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
 		<link rel="stylesheet" href="lib/TimelineJS/build/css/timeline.css">
-		<!-- build:css kdintro/kdintro.min.css -->
-		<link rel="stylesheet" href="kdintro/kdintro.css">
+		<!-- build:css kdintrotimeline/main.min.css -->
+		<link rel="stylesheet" href="kdintrotimeline/main.css">
 		<!-- endbuild -->
 		<script src="lib/jquery/dist/jquery.min.js"></script>
 		<script src="lib/angular/angular.js"></script>
 		<script src="lib/TimelineJS/build/js/timeline-min.js"></script>
 		<script src="lib/TimelineJS/build/js/storyjs-embed.js"></script>
 		<script src="lib/TimelineJS/build/js/locale/zh-tw.js"></script>
-		<!-- build:js kdintro/kdintro.min.js -->
+		<!-- build:js kdintrotimeline/main.min.js -->
 		<script src="lib/ga.js"></script>
 		<script src="lib/angular-local-storage/angular-local-storage.js"></script>
 		<script src="lib/angular-translate/angular-translate.js"></script>
-		<script src="lib/base.js"></script>
+		<script src="lib/app.js"></script>
 		<script src="lib/locale.js"></script>
-		<script src="kdintro/kdintro.js"></script>
+		<script src="kdintrotimeline/main.js"></script>
 		<!-- no load in dev mode
-		<script src="kdintro/kdintro.ngtpl.tmp.js"></script>
+		<script src="kdintrotimeline/angular-template.tmp.js"></script>
 		-->
 		<!-- endbuild -->
 	</head>
 	<body ng-controller="IntroCtrl">
-		<div style="float: right; margin-right: 1em; margin-top: 1em;">
-			<a class="btn btn-primary btn-xs" href="kdintro1/" translate>Old Version</a>
-			<select ng-controller="LocaleCtrl" ng-model="locale" ng-options="lang.id as lang.name for lang in locales" ng-change="updateLocale()" class="form-control input-sm" style="width: auto; display: inline-block;"></select>
-		</div>
-		<div style="color: white; background-color: #5d4b97; text-align: center; font-size: 34px; padding-top: 5px; padding-bottom: 5px;">蔡程豐 (tsaikd)</div>
-		<div class="hidden-xs" style="float: right; display: none;">
-			<img style="width: 224px; height: 300px;" src="kdintro/pic.jpg"/>
-		</div>
-		<div class="visible-xs" style="text-align: center; display: none;">
-			<img style="width: 224px; height: 300px;" src="kdintro/pic.jpg"/>
-		</div>
+		<a href="." target="_self">
+			<div style="color: white; background-color: #5d4b97; text-align: center; font-size: 34px; padding-top: 5px; padding-bottom: 5px;" translate>Cheng-Feng Tsai (tsaikd)</div>
+		</a>
 		<div id="timeline"></div>
-		<div id="data" style="display: none;">
+		<div id="data" class="hidden">
 
 
 
@@ -61,9 +53,9 @@
 	</headline>
 	<startDate>1997-09-01</startDate>
 	<endDate>2000-07-01</endDate>
-	<thumbnail>kdintro/shsh.png</thumbnail>
+	<thumbnail>kdintrotimeline/shsh.png</thumbnail>
 	<assetimages>
-		<assetimage>kdintro/shsh.png</assetimage>
+		<assetimage>kdintrotimeline/shsh.png</assetimage>
 	</assetimages>
 </item>
 
@@ -75,9 +67,9 @@
 	</headline>
 	<startDate>2000-09-01</startDate>
 	<endDate>2003-07-01</endDate>
-	<thumbnail>kdintro/shsh.png</thumbnail>
+	<thumbnail>kdintrotimeline/shsh.png</thumbnail>
 	<assetimages>
-		<assetimage>kdintro/shsh.png</assetimage>
+		<assetimage>kdintrotimeline/shsh.png</assetimage>
 	</assetimages>
 </item>
 
@@ -92,9 +84,9 @@
 	<text>
 		<a href="http://www.csie.ncku.edu.tw/">資訊工程學系</a>
 	</text>
-	<thumbnail>kdintro/ncku.jpg</thumbnail>
+	<thumbnail>kdintrotimeline/ncku.jpg</thumbnail>
 	<assetimages>
-		<assetimage>kdintro/ncku.jpg</assetimage>
+		<assetimage>kdintrotimeline/ncku.jpg</assetimage>
 	</assetimages>
 </item>
 
@@ -114,9 +106,9 @@
 		</ul>
 		<div>其實都是同一個單位...=.=</div>
 	</text>
-	<thumbnail>kdintro/foxconn.jpg</thumbnail>
+	<thumbnail>kdintrotimeline/foxconn.jpg</thumbnail>
 	<assetimages>
-		<assetimage>kdintro/foxconn.jpg</assetimage>
+		<assetimage>kdintrotimeline/foxconn.jpg</assetimage>
 	</assetimages>
 </item>
 
@@ -130,9 +122,9 @@
 	<text>
 		<div>行政管理群-總部資訊處</div>
 	</text>
-	<thumbnail>kdintro/wantwant.png</thumbnail>
+	<thumbnail>kdintrotimeline/wantwant.png</thumbnail>
 	<assetimages>
-		<assetimage>kdintro/wantwant.png</assetimage>
+		<assetimage>kdintrotimeline/wantwant.png</assetimage>
 	</assetimages>
 </item>
 
@@ -151,9 +143,9 @@
 覺得有些基本型態不能強制轉型有點麻煩，
 就弄個小工具來簡化程式碼。
 	</text>
-	<thumbnail>kdintro/golang.png</thumbnail>
+	<thumbnail>kdintrotimeline/golang.png</thumbnail>
 	<assetimages>
-		<assetimage>kdintro/golang.png</assetimage>
+		<assetimage>kdintrotimeline/golang.png</assetimage>
 	</assetimages>
 </item>
 
@@ -171,9 +163,9 @@
 	<text>
 用 Golang 重寫的論壇爬蟲
 	</text>
-	<thumbnail>kdintro/golang.png</thumbnail>
+	<thumbnail>kdintrotimeline/golang.png</thumbnail>
 	<assetimages>
-		<assetimage>kdintro/GoForumReader.png</assetimage>
+		<assetimage>kdintrotimeline/GoForumReader.png</assetimage>
 	</assetimages>
 </item>
 
@@ -192,9 +184,9 @@
 用 Java 寫的論壇爬蟲，
 美女圖的來源就靠它了...hehe
 	</text>
-	<thumbnail>kdintro/java.jpg</thumbnail>
+	<thumbnail>kdintrotimeline/java.jpg</thumbnail>
 	<assetimages>
-		<assetimage>kdintro/java.jpg</assetimage>
+		<assetimage>kdintrotimeline/java.jpg</assetimage>
 	</assetimages>
 </item>
 
@@ -219,9 +211,9 @@
 這個 project 是為了要找到幾乎一樣的圖
 </p>
 	</text>
-	<thumbnail>kdintro/PicMgr.png</thumbnail>
+	<thumbnail>kdintrotimeline/PicMgr.png</thumbnail>
 	<assetimages>
-		<assetimage>kdintro/PicMgr.png</assetimage>
+		<assetimage>kdintrotimeline/PicMgr.png</assetimage>
 	</assetimages>
 </item>
 
@@ -268,9 +260,9 @@
 <p>servlet 系列有簡單的 Proxy 工具, 取網頁參數的工具</p>
 <p>utils 系列有包裝過的 Http Client 工具</p>
 	</text>
-	<thumbnail>kdintro/java.jpg</thumbnail>
+	<thumbnail>kdintrotimeline/java.jpg</thumbnail>
 	<assetimages>
-		<assetimage>kdintro/java.jpg</assetimage>
+		<assetimage>kdintrotimeline/java.jpg</assetimage>
 	</assetimages>
 </item>
 
@@ -289,9 +281,9 @@
 只好透過 NodeJs 來幫忙解析網頁，
 因為 NodeJs 可以很方便的用 jQuery 來抓網頁的資料。
 	</text>
-	<thumbnail>kdintro/nodejs.png</thumbnail>
+	<thumbnail>kdintrotimeline/nodejs.png</thumbnail>
 	<assetimages>
-		<assetimage>kdintro/nodejs.png</assetimage>
+		<assetimage>kdintrotimeline/nodejs.png</assetimage>
 	</assetimages>
 </item>
 
@@ -311,9 +303,9 @@
 當然還有一些其他用途啦...^_^
 </pre>
 	</text>
-	<thumbnail>kdintro/javascript.png</thumbnail>
+	<thumbnail>kdintrotimeline/javascript.png</thumbnail>
 	<assetimages>
-		<assetimage>kdintro/javascript.png</assetimage>
+		<assetimage>kdintrotimeline/javascript.png</assetimage>
 	</assetimages>
 </item>
 
@@ -333,9 +325,9 @@
 監控美金外匯匯率的小程式
 </pre>
 	</text>
-	<thumbnail>kdintro/qt.jpg</thumbnail>
+	<thumbnail>kdintrotimeline/qt.jpg</thumbnail>
 	<assetimages>
-		<assetimage>kdintro/ExchangeAlert.png</assetimage>
+		<assetimage>kdintrotimeline/ExchangeAlert.png</assetimage>
 	</assetimages>
 </item>
 
@@ -360,9 +352,9 @@
 Linux 上的 Gnome 也許可以用...XD
 </pre>
 	</text>
-	<thumbnail>kdintro/qt.jpg</thumbnail>
+	<thumbnail>kdintrotimeline/qt.jpg</thumbnail>
 	<assetimages>
-		<assetimage>kdintro/KDWall.png</assetimage>
+		<assetimage>kdintrotimeline/KDWall.png</assetimage>
 	</assetimages>
 </item>
 
@@ -398,9 +390,9 @@ Linux 上的 Gnome 也許可以用...XD
 再如法炮製一次就搞定了。
 </p>
 	</text>
-	<thumbnail>kdintro/qt.jpg</thumbnail>
+	<thumbnail>kdintrotimeline/qt.jpg</thumbnail>
 	<assetimages>
-		<assetimage>kdintro/qt.jpg</assetimage>
+		<assetimage>kdintrotimeline/qt.jpg</assetimage>
 	</assetimages>
 </item>
 
@@ -430,9 +422,9 @@ Linux 上的 Gnome 也許可以用...XD
 這樣就減少漏訂的機會了...haha
 </pre>
 	</text>
-	<thumbnail>kdintro/qt.jpg</thumbnail>
+	<thumbnail>kdintrotimeline/qt.jpg</thumbnail>
 	<assetimages>
-		<assetimage>kdintro/qt.jpg</assetimage>
+		<assetimage>kdintrotimeline/qt.jpg</assetimage>
 	</assetimages>
 </item>
 
@@ -450,7 +442,7 @@ Linux 上的 Gnome 也許可以用...XD
 	</tags>
 	<text>
 <pre>
-<a href="kdintro1/KDLib/" target="_blank">KDLib Doc</a>
+<a href="kdintro/KDLib/" target="_blank">KDLib Doc</a>
 
 KDLib 是在寫 MFC 程式的時候所產生的副產品
 就是把一些比較通用的函數類別另外維護
@@ -462,9 +454,9 @@ KDLib 是在寫 MFC 程式的時候所產生的副產品
 所以就弄了這個說明文件
 </pre>
 	</text>
-	<thumbnail>kdintro/microsoft.jpg</thumbnail>
+	<thumbnail>kdintrotimeline/microsoft.jpg</thumbnail>
 	<assetimages>
-		<assetimage>kdintro/microsoft.jpg</assetimage>
+		<assetimage>kdintrotimeline/microsoft.jpg</assetimage>
 	</assetimages>
 </item>
 
@@ -495,9 +487,9 @@ KDLib 是在寫 MFC 程式的時候所產生的副產品
 終於寫了一個比較可以看的 Project 了。
 </pre>
 	</text>
-	<thumbnail>kdintro/microsoft.jpg</thumbnail>
+	<thumbnail>kdintrotimeline/microsoft.jpg</thumbnail>
 	<assetimages>
-		<assetimage>kdintro/microsoft.jpg</assetimage>
+		<assetimage>kdintrotimeline/microsoft.jpg</assetimage>
 	</assetimages>
 </item>
 
@@ -527,9 +519,9 @@ KDLib 是在寫 MFC 程式的時候所產生的副產品
 不用一個檔案一個檔案下載
 </pre>
 	</text>
-	<thumbnail>kdintro/microsoft.jpg</thumbnail>
+	<thumbnail>kdintrotimeline/microsoft.jpg</thumbnail>
 	<assetimages>
-		<assetimage>kdintro/microsoft.jpg</assetimage>
+		<assetimage>kdintrotimeline/microsoft.jpg</assetimage>
 	</assetimages>
 </item>
 
@@ -555,9 +547,9 @@ KDLib 是在寫 MFC 程式的時候所產生的副產品
 真的好硬啊~~~
 </pre>
 	</text>
-	<thumbnail>kdintro/h264.jpg</thumbnail>
+	<thumbnail>kdintrotimeline/h264.jpg</thumbnail>
 	<assetimages>
-		<assetimage>kdintro/h264.jpg</assetimage>
+		<assetimage>kdintrotimeline/h264.jpg</assetimage>
 	</assetimages>
 </item>
 
@@ -580,9 +572,9 @@ KDLib 是在寫 MFC 程式的時候所產生的副產品
 所以弄個 player 也是很正常的...XD
 </pre>
 	</text>
-	<thumbnail>kdintro/qt.jpg</thumbnail>
+	<thumbnail>kdintrotimeline/qt.jpg</thumbnail>
 	<assetimages>
-		<assetimage>kdintro/qt.jpg</assetimage>
+		<assetimage>kdintrotimeline/qt.jpg</assetimage>
 	</assetimages>
 </item>
 
@@ -606,9 +598,9 @@ KDLib 是在寫 MFC 程式的時候所產生的副產品
 花了好多的時間在處理 IE 跟 Fx 的顯示問題...T_T
 </pre>
 	</text>
-	<thumbnail>kdintro/php.jpg</thumbnail>
+	<thumbnail>kdintrotimeline/php.jpg</thumbnail>
 	<assetimages>
-		<assetimage>kdintro/php.jpg</assetimage>
+		<assetimage>kdintrotimeline/php.jpg</assetimage>
 	</assetimages>
 </item>
 
@@ -633,9 +625,9 @@ KDLib 是在寫 MFC 程式的時候所產生的副產品
 僅僅是堪用而已...XD
 </pre>
 	</text>
-	<thumbnail>kdintro/php.jpg</thumbnail>
+	<thumbnail>kdintrotimeline/php.jpg</thumbnail>
 	<assetimages>
-		<assetimage>kdintro/php.jpg</assetimage>
+		<assetimage>kdintrotimeline/php.jpg</assetimage>
 	</assetimages>
 </item>
 
@@ -652,9 +644,9 @@ KDLib 是在寫 MFC 程式的時候所產生的副產品
 	<text>
 因為 Windows 沒辦法靠快速鍵讓螢幕進入省電模式，只好自己來。
 	</text>
-	<thumbnail>kdintro/autoit.jpg</thumbnail>
+	<thumbnail>kdintrotimeline/autoit.jpg</thumbnail>
 	<assetimages>
-		<assetimage>kdintro/autoit.jpg</assetimage>
+		<assetimage>kdintrotimeline/autoit.jpg</assetimage>
 	</assetimages>
 </item>
 
@@ -674,9 +666,9 @@ KDLib 是在寫 MFC 程式的時候所產生的副產品
 主要目的是為了幫助寫 KDBlog 的文章
 </pre>
 	</text>
-	<thumbnail>kdintro/autoit.jpg</thumbnail>
+	<thumbnail>kdintrotimeline/autoit.jpg</thumbnail>
 	<assetimages>
-		<assetimage>kdintro/KDBlogWriter.png</assetimage>
+		<assetimage>kdintrotimeline/KDBlogWriter.png</assetimage>
 	</assetimages>
 </item>
 
@@ -695,9 +687,9 @@ KDLib 是在寫 MFC 程式的時候所產生的副產品
 這是為了要快速審圖(分類圖片)而做的小工具
 </pre>
 	</text>
-	<thumbnail>kdintro/autoit.jpg</thumbnail>
+	<thumbnail>kdintrotimeline/autoit.jpg</thumbnail>
 	<assetimages>
-		<assetimage>kdintro/KDPicMover.png</assetimage>
+		<assetimage>kdintrotimeline/KDPicMover.png</assetimage>
 	</assetimages>
 </item>
 
@@ -719,9 +711,9 @@ KDLib 是在寫 MFC 程式的時候所產生的副產品
 所以就不公開了...ccc...^_^
 </pre>
 	</text>
-	<thumbnail>kdintro/autoit.jpg</thumbnail>
+	<thumbnail>kdintrotimeline/autoit.jpg</thumbnail>
 	<assetimages>
-		<assetimage>kdintro/autoit.jpg</assetimage>
+		<assetimage>kdintrotimeline/autoit.jpg</assetimage>
 	</assetimages>
 </item>
 
@@ -740,9 +732,9 @@ KDLib 是在寫 MFC 程式的時候所產生的副產品
 一堆有的沒的 bash script
 </pre>
 	</text>
-	<thumbnail>kdintro/bash.jpg</thumbnail>
+	<thumbnail>kdintrotimeline/bash.jpg</thumbnail>
 	<assetimages>
-		<assetimage>kdintro/bash.jpg</assetimage>
+		<assetimage>kdintrotimeline/bash.jpg</assetimage>
 	</assetimages>
 </item>
 
@@ -764,9 +756,9 @@ shell 的相關環境設定
 自動檢查 screen 環境
 </pre>
 	</text>
-	<thumbnail>kdintro/bash.jpg</thumbnail>
+	<thumbnail>kdintrotimeline/bash.jpg</thumbnail>
 	<assetimages>
-		<assetimage>kdintro/bash.jpg</assetimage>
+		<assetimage>kdintrotimeline/bash.jpg</assetimage>
 	</assetimages>
 </item>
 
@@ -865,9 +857,9 @@ url.sh:url_remove_arg_all
 移除所有網址變數
 </pre>
 	</text>
-	<thumbnail>kdintro/gentoo.jpg</thumbnail>
+	<thumbnail>kdintrotimeline/gentoo.jpg</thumbnail>
 	<assetimages>
-		<assetimage>kdintro/gentoo.jpg</assetimage>
+		<assetimage>kdintrotimeline/gentoo.jpg</assetimage>
 	</assetimages>
 </item>
 
@@ -921,9 +913,9 @@ url.sh:url_remove_arg_all
 真的沒想到一個人開發還是能搞出這種規模的產品！
 </p>
 	</text>
-	<thumbnail>kdintro/java.jpg</thumbnail>
+	<thumbnail>kdintrotimeline/java.jpg</thumbnail>
 	<assetimages>
-		<assetimage>kdintro/patentcloud.png</assetimage>
+		<assetimage>kdintrotimeline/patentcloud.png</assetimage>
 	</assetimages>
 </item>
 
@@ -944,9 +936,9 @@ url.sh:url_remove_arg_all
 不過最近 (2014/02) Shipyard 改版把架構弄複雜了，用起來很不爽，
 只好自己硬幹一個簡單版的管理介面。
 	</text>
-	<thumbnail>kdintro/docker.png</thumbnail>
+	<thumbnail>kdintrotimeline/docker.png</thumbnail>
 	<assetimages>
-		<assetimage>kdintro/kdocker-web.png</assetimage>
+		<assetimage>kdintrotimeline/kdocker-web.png</assetimage>
 	</assetimages>
 </item>
 
@@ -967,9 +959,9 @@ url.sh:url_remove_arg_all
 而且 Dockerfile 能提供的客製化有限，
 所以就只好寫一套產生可以客製化 docker image 的工具。
 	</text>
-	<thumbnail>kdintro/docker.png</thumbnail>
+	<thumbnail>kdintrotimeline/docker.png</thumbnail>
 	<assetimages>
-		<assetimage>kdintro/docker.png</assetimage>
+		<assetimage>kdintrotimeline/docker.png</assetimage>
 	</assetimages>
 </item>
 
@@ -986,9 +978,9 @@ url.sh:url_remove_arg_all
 	<text>
 把秒數轉換成比較好看的顯示方式
 	</text>
-	<thumbnail>kdintro/angularjs.png</thumbnail>
+	<thumbnail>kdintrotimeline/angularjs.png</thumbnail>
 	<assetimages>
-		<assetimage>kdintro/angularjs.png</assetimage>
+		<assetimage>kdintrotimeline/angularjs.png</assetimage>
 	</assetimages>
 </item>
 

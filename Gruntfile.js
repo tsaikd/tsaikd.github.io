@@ -1,7 +1,7 @@
 module.exports = function(grunt) {
 
 	grunt.initConfig({
-		pkg: grunt.file.readJSON("bower.json"),
+		pkg: grunt.file.readJSON("package.json"),
 		meta: {
 			bowerrc: grunt.file.readJSON(".bowerrc"),
 			lib: "<%= meta.bowerrc.directory %>",
@@ -13,9 +13,12 @@ module.exports = function(grunt) {
 				"<%= meta.dist %>/index/*.min.*",
 				"<%= meta.dist %>/index/*.tmp.*",
 				"<%= meta.dist %>/index.html",
-				"<%= meta.dist %>/kdintro/*.min.*",
-				"<%= meta.dist %>/kdintro/*.tmp.*",
-				"<%= meta.dist %>/kdintro.html"
+				"<%= meta.dist %>/kdintroplain/*.min.*",
+				"<%= meta.dist %>/kdintroplain/*.tmp.*",
+				"<%= meta.dist %>/kdintroplain.html",
+				"<%= meta.dist %>/kdintrotimeline/*.min.*",
+				"<%= meta.dist %>/kdintrotimeline/*.tmp.*",
+				"<%= meta.dist %>/kdintrotimeline.html"
 			]
 		},
 		copy: {
@@ -23,26 +26,34 @@ module.exports = function(grunt) {
 				src: "<%= meta.dist %>/index.src.html",
 				dest: "<%= meta.dist %>/index.html"
 			},
-			kdintro: {
-				src: "<%= meta.dist %>/kdintro.src.html",
-				dest: "<%= meta.dist %>/kdintro.html"
+			kdintroplain: {
+				src: "<%= meta.dist %>/kdintroplain.src.html",
+				dest: "<%= meta.dist %>/kdintroplain.html"
+			},
+			kdintrotimeline: {
+				src: "<%= meta.dist %>/kdintrotimeline.src.html",
+				dest: "<%= meta.dist %>/kdintrotimeline.html"
 			}
 		},
 		useminPrepare: {
+			options: {
+				dest: "<%= meta.dist %>"
+			},
 			index: {
 				src: "<%= meta.dist %>/index.html"
 			},
-			kdintro: {
-				src: "<%= meta.dist %>/kdintro.html"
+			kdintroplain: {
+				src: "<%= meta.dist %>/kdintroplain.html"
 			},
-			options: {
-				dest: "<%= meta.dist %>"
+			kdintrotimeline: {
+				src: "<%= meta.dist %>/kdintrotimeline.html"
 			}
 		},
 		usemin: {
 			html: [
 				"<%= meta.dist %>/index.html",
-				"<%= meta.dist %>/kdintro.html"
+				"<%= meta.dist %>/kdintroplain.html",
+				"<%= meta.dist %>/kdintrotimeline.html"
 			]
 		},
 		version: {
@@ -51,25 +62,28 @@ module.exports = function(grunt) {
 			}
 		},
 		ngtemplates: {
-			"index": {
-				src: ["<%= meta.dist %>/index/*.html"],
-				dest: "<%= meta.dist %>/index/index.ngtpl.tmp.js",
-				options: {
-					usemin: "<%= meta.dist %>/index/index.min.js",
-					bootstrap: function(module, script) {
-						return "app.run(['$templateCache', function($templateCache) {" + script + "}]);";
-					}
+			options: {
+				usemin: "<%= meta.dist %>/index/index.min.js",
+				bootstrap: function(module, script) {
+					return "app.run(['$templateCache', function($templateCache) {" + script + "}]);";
 				}
 			},
-			"kdintro": {
-				src: ["<%= meta.dist %>/kdintro/*.html"],
-				dest: "<%= meta.dist %>/kdintro/kdintro.ngtpl.tmp.js",
-				options: {
-					usemin: "<%= meta.dist %>/kdintro/kdintro.min.js",
-					bootstrap: function(module, script) {
-						return "app.run(['$templateCache', function($templateCache) {" + script + "}]);";
-					}
-				}
+			"index": {
+				src: ["<%= meta.dist %>/index/*.html"],
+				dest: "<%= meta.dist %>/index/angular-template.tmp.js"
+			},
+			"kdintroplain": {
+				src: ["<%= meta.dist %>/kdintroplain/*.html"],
+				dest: "<%= meta.dist %>/kdintroplain/angular-template.tmp.js"
+			},
+			"kdintrotimeline": {
+				src: ["<%= meta.dist %>/kdintrotimeline/*.html"],
+				dest: "<%= meta.dist %>/kdintrotimeline/angular-template.tmp.js"
+			}
+		},
+		sitemap: {
+			dist: {
+				siteRoot: "./"
 			}
 		},
 		connect: {
@@ -99,6 +113,6 @@ module.exports = function(grunt) {
 	require("load-grunt-tasks")(grunt);
 	grunt.registerTask("build", ["copy", "ngtemplates", "useminPrepare", "concat", "cssmin", "uglify", "usemin", "version"]);
 	grunt.registerTask("default", ["clean", "sync", "build"]);
-	grunt.registerTask("dev", ["connect", "watch"]);
+	grunt.registerTask("dev", ["build", "connect", "watch"]);
 
 };

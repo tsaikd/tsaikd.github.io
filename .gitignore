@@ -3,7 +3,7 @@
 /lib/jquery/src/
 /lib/TimelineJS/source/
 /lib/TimelineJS/website/
-*.ngtpl.tmp.js
+angular-template.tmp.js
 
 /assets
 /blog
