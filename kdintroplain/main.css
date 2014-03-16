@@ -72,10 +72,45 @@
 	}
 }
 
+.avatar {
+	float: right;
+}
+
+@media (max-width: 650px) {
+	.avatar {
+		float: none;
+		margin: auto;
+		display: block;
+	}
+}
+
 .block {
 	margin-bottom: 2em;
 }
 
 .block-header {
-	font-size: 2em;
+	font-size: 1.6em;
+	color: #009;
+}
+
+.glyphicon.glyphicon-star {
+	color: #f70;
+}
+
+@media print {
+	a[href]:after {
+		display: none;
+	}
+	body {
+		font-size: 12pt;
+	}
+	.avatar {
+		float: right;
+	}
+	.block-header * {
+		color: #009 !important;
+	}
+	.glyphicon.glyphicon-star {
+		color: #f70 !important;
+	}
 }

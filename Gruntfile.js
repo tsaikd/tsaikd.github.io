@@ -21,6 +21,11 @@ module.exports = function(grunt) {
 				"<%= meta.dist %>/kdintrotimeline.html"
 			]
 		},
+		sync: {
+			options: {
+				include: ["name", "version", "description", "authors", "license", "homepage", "main"]
+			}
+		},
 		copy: {
 			index: {
 				src: "<%= meta.dist %>/index.src.html",

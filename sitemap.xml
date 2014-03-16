@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-  <loc>http://www.tsaikd.org/</loc>
+  <loc>http://tsaikd.org/</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://www.tsaikd.org/kdintro/</loc>
+  <loc>http://tsaikd.org/kdintro/</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://www.tsaikd.org/kdintroplain.html</loc>
+  <loc>http://tsaikd.org/kdintroplain.html</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://www.tsaikd.org/kdintrotimeline.html/</loc>
+  <loc>http://tsaikd.org/kdintrotimeline.html/</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://www.tsaikd.org/blog//</loc>
+  <loc>http://tsaikd.org/blog/</loc>
   <changefreq>daily</changefreq>
 </url>
 </urlset>

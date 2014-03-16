@@ -25,20 +25,15 @@
 		<!-- endbuild -->
 	</head>
 	<body ng-controller="IntroPlainCtrl">
-		<select ng-controller="LocaleCtrl" ng-model="locale" ng-options="lang.id as lang.name for lang in locales" ng-change="updateLocale()" class="form-control input-sm pull-right" style="width: auto; margin-top: 14px; margin-right: 14px;"></select>
-		<div class="pull-right" style="margin-right: 15px; margin-top: 18px;">
+		<select ng-controller="LocaleCtrl" ng-model="locale" ng-options="lang.id as lang.name for lang in locales" ng-change="updateLocale()" class="form-control input-sm pull-right hidden-print" style="width: auto; margin-top: 14px; margin-right: 14px;"></select>
+		<div class="pull-right hidden-print" style="margin-right: 15px; margin-top: 18px;">
 			<a class="btn btn-primary btn-xs" href="kdintro/" target="_self" translate>Old Version</a>
 		</div>
 		<a href=".">
 			<div style="color: white; background-color: #5d4b97; text-align: center; font-size: 34px; padding-top: 5px; padding-bottom: 5px;" translate>Cheng-Feng Tsai (tsaikd)</div>
 		</a>
 		<div class="center-block" style="max-width: 800px; padding: 0.5em 1em;">
-			<div class="hidden-xs" style="float: right;">
-				<img style="width: 224px; height: 300px;" src="kdintro/pic.jpg"/>
-			</div>
-			<div class="visible-xs" style="text-align: center;">
-				<img style="width: 224px; height: 300px;" src="kdintro/pic.jpg"/>
-			</div>
+			<img class="avatar" style="width: 224px; height: 300px;" src="kdintro/pic.jpg"/>
 			<div class="block">
 				<div class="block-header">
 					<span translate>Base Information</span>
@@ -514,13 +509,11 @@
 								<div class="pull-right" style="margin-left: 2em;">
 									<span class="glyphicon glyphicon-star"></span>
 									<span class="glyphicon glyphicon-star"></span>
-									<span class="glyphicon glyphicon-star"></span>
 								</div>
 								<span>eXo Platform</span>
 							</li>
 							<li>
 								<div class="pull-right" style="margin-left: 2em;">
-									<span class="glyphicon glyphicon-star"></span>
 									<span class="glyphicon glyphicon-star"></span>
 									<span class="glyphicon glyphicon-star"></span>
 								</div>

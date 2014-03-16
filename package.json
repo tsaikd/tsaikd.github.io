@@ -1,5 +1,5 @@
 {
-  "name": "www.tsaikd.org",
+  "name": "tsaikd.github.io",
   "version": "0.0.1",
   "description": "tsaikd web site",
   "devDependencies": {
@@ -19,12 +19,14 @@
     "grunt-sitemap": ">=0",
     "load-grunt-tasks": ">=0"
   },
-  "author": "tsaikd <tsaikd@gmail.com>",
+  "authors": [
+    "tsaikd <tsaikd@gmail.com>"
+  ],
   "license": "LGPLv3",
-  "homepage": "http://www.tsaikd.org/",
+  "homepage": "http://tsaikd.github.io/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/tsaikd/www.tsaikd.org/"
+    "url": "https://github.com/tsaikd/tsaikd.github.io/"
   },
   "main": "index.html"
 }
