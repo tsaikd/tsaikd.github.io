@@ -51,7 +51,6 @@ $(function() {
 			tar.data("loaded", true);
 
 			var url = $(this).attr("url");
-			_gaq.push(['_trackPageview', '/kdintro/'+url]);
 			$.ajax({
 				url: url,
 				success: function(d) {
