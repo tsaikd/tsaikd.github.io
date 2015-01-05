@@ -15,8 +15,8 @@ app
 }])
 
 .controller("IntroPlainCtrl"
-	, [     "$scope",
-	function($scope) {
+	, [       "$scope"
+	, function($scope) {
 
 }])
 

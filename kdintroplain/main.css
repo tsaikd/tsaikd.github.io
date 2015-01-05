@@ -97,12 +97,29 @@
 	color: #f70;
 }
 
+ul.skill {
+	display: inline-block;
+}
+@media print {
+	ul.skill {
+		display: block;
+	}
+}
+
+ul.skill li.leaf {
+	border-bottom: 1px solid #999;
+}
+
+ul.skill > li {
+	margin-bottom: 0.5em;
+}
+
 @media print {
 	a[href]:after {
 		display: none;
 	}
 	body {
-		font-size: 12pt;
+		font-size: 11pt;
 	}
 	.avatar {
 		float: right;
