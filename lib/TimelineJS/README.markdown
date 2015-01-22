@@ -162,6 +162,7 @@ Languages available:
 * `bg` *Bulgarian*
 * `ca` *Catalan*
 * `zh-cn` *Chinese*
+* `hr` *Croatian / Hrvatski*
 * `cz` *Czech*
 * `da` *Danish*
 * `nl` *Dutch*
@@ -207,6 +208,7 @@ Languages available:
 * `zh-tw` *Taiwanese*
 * `te` *Telugu*
 * `tr` *Turkish*
+* `uk` *Ukrainian*
 
 
 
@@ -257,6 +259,9 @@ Due to recent changes to the Google Maps API, you need a [API Key](https://devel
 	* `HYBRID`
 	* `SATELLITE`
 
+* OpenStreetMap
+	- `osm`
+
 ###Font Options 
 `font:`
 * `AbrilFatface-Average` *Abril Fatface & Average*
@@ -279,7 +284,7 @@ Due to recent changes to the Google Maps API, you need a [API Key](https://devel
 * Or make your own
 
 ####Font Combination Preview:
-![Font Combination Preview](http://timeline.verite.co/gfx/font-options.png)
+![Font Combination Preview](http://timeline.knightlab.com/static/img/make/font-options.png)
 
 ## File Formats
 
@@ -419,7 +424,7 @@ using Google Docs:
 	
 ### Storify:
 
-Support for Storify is still in it's early stages. It works though. Just paste a link to the storify story as the source.
+Support for Storify is still in its early stages. It works though. Just paste a link to the storify story as the source.
 
 ## Media
 

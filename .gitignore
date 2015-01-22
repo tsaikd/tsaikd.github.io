@@ -1,8 +1,9 @@
 /.tmp/
 /node_modules/
+!/lib/bootstrap/dist/
+/lib/bootstrap/*/
 /lib/jquery/src/
 /lib/TimelineJS/source/
-/lib/TimelineJS/website/
 angular-template.tmp.js
 
 /assets

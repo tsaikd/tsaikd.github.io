@@ -1,0 +1,18 @@
+{
+  "name": "angular-translate-getlocale",
+  "version": "0.0.1",
+  "homepage": "https://github.com/tsaikd/angular-translate-getlocale",
+  "description": "angular-translate plugin, get browser locale and lowercase",
+  "license": "LGPLv3",
+  "dependencies": {
+    "angular-translate": ">=2.5"
+  },
+  "main": [
+    "angular-translate-getlocale.js"
+  ],
+  "ignore": [
+  ],
+  "authors": [
+    "tsaikd <tsaikd@gmail.com>"
+  ]
+}
