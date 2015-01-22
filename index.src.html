@@ -1,28 +1,33 @@
 <!doctype html>
 <html lang="zh-TW" ng-app="app">
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="tsaikd web site, introduction, and some link">
 		<meta name="description" content="tsaikd 個人網站, 簡介, 跟一些常用連結">
-		<meta name="google-site-verification" content="19llJ_wNlrr40Yt163Hv-VFi_syacHWGs1pKqMq2BAc" />
+		<meta name="google-site-verification" content="19llJ_wNlrr40Yt163Hv-VFi_syacHWGs1pKqMq2BAc">
 		<title translate>KD's Homepage</title>
 		<link rel="shortcut icon" href="favicon.ico">
+
 		<link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
-		<!-- build:css index/main.min.css -->
-		<link rel="stylesheet" href="index/main.css">
+
+		<!-- build:css src/index/main.min.css -->
+		<link rel="stylesheet" href="src/index/main.css">
 		<!-- endbuild -->
-		<script src="lib/angular/angular.js"></script>
+
 		<!-- build:js index/main.min.js -->
-		<script src="lib/ga.js"></script>
+		<script src="lib/angular/angular.js"></script>
 		<script src="lib/angular-local-storage/angular-local-storage.js"></script>
 		<script src="lib/angular-translate/angular-translate.js"></script>
-		<script src="lib/app.js"></script>
-		<script src="lib/locale.js"></script>
-		<script src="index/main.js"></script>
-		<!-- no load in dev mode
-		<script src="index/angular-template.tmp.js"></script>
+
+		<script src="src/config/app.js"></script>
+		<script src="src/config/ga.js"></script>
+		<script src="src/config/locale.js"></script>
+
+		<script src="src/index/main.js"></script>
+		<!--
+		<script src="src/angular-template.tmp.js"></script>
 		-->
 		<!-- endbuild -->
 	</head>
@@ -78,7 +83,7 @@
 			<table style="position: fixed; width: 100%; height: 100%; top: 0px; left: 0px;">
 				<tr>
 					<td style="text-align: center;">
-						<img src="index/loading.png" class="spinner active" style="width: 128px; height: 128px;"/>
+						<img src="src/index/loading.png" class="spinner active" style="width: 128px; height: 128px;"/>
 					</td>
 				</tr>
 			</table>

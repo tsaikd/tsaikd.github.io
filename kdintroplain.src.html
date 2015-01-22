@@ -1,26 +1,31 @@
 <!doctype html>
 <html lang="zh-TW" ng-app="app">
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title translate>KD Introduction</title>
 		<link rel="shortcut icon" href="favicon.ico">
+
 		<link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
-		<!-- build:css kdintroplain/main.min.css -->
-		<link rel="stylesheet" href="kdintroplain/main.css">
+
+		<!-- build:css src/kdintroplain/main.min.css -->
+		<link rel="stylesheet" href="src/kdintroplain/main.css">
 		<!-- endbuild -->
+
 		<script src="lib/jquery/dist/jquery.min.js"></script>
-		<script src="lib/angular/angular.js"></script>
 		<!-- build:js kdintroplain/main.min.js -->
-		<script src="lib/ga.js"></script>
+		<script src="lib/angular/angular.js"></script>
 		<script src="lib/angular-local-storage/angular-local-storage.js"></script>
 		<script src="lib/angular-translate/angular-translate.js"></script>
-		<script src="lib/app.js"></script>
-		<script src="lib/locale.js"></script>
-		<script src="kdintroplain/main.js"></script>
-		<!-- no load in dev mode
-		<script src="kdintroplain/angular-template.tmp.js"></script>
+
+		<script src="src/config/app.js"></script>
+		<script src="src/config/ga.js"></script>
+		<script src="src/config/locale.js"></script>
+
+		<script src="src/kdintroplain/main.js"></script>
+		<!--
+		<script src="src/angular-template.tmp.js"></script>
 		-->
 		<!-- endbuild -->
 	</head>
@@ -764,7 +769,7 @@
 			<table style="position: fixed; width: 100%; height: 100%; top: 0px; left: 0px;">
 				<tr>
 					<td style="text-align: center;">
-						<img src="index/loading.png" class="spinner active" style="width: 128px; height: 128px;"/>
+						<img src="src/index/loading.png" class="spinner active" style="width: 128px; height: 128px;"/>
 					</td>
 				</tr>
 			</table>
