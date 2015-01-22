@@ -9,11 +9,13 @@
   ],
   "license": "LGPLv3",
   "dependencies": {
-    "bootstrap": ">=3",
-    "angular": ">=1.2",
-    "angular-translate": ">=2",
-    "angular-local-storage": null,
-    "TimelineJS": ">=0"
+    "bootstrap": "*",
+    "angular": "*",
+    "angular-translate": "*",
+    "angular-translate-getlocale": "tsaikd/angular-translate-getlocale#master",
+    "angular-translate-handler-log": "*",
+    "angular-translate-storage-local": "*",
+    "TimelineJS": "*"
   },
   "main": [
     "index.html"

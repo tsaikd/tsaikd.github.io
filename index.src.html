@@ -18,8 +18,12 @@
 
 		<!-- build:js index/main.min.js -->
 		<script src="lib/angular/angular.js"></script>
-		<script src="lib/angular-local-storage/angular-local-storage.js"></script>
+		<script src="lib/angular-cookies/angular-cookies.js"></script>
 		<script src="lib/angular-translate/angular-translate.js"></script>
+		<script src="lib/angular-translate-getlocale/angular-translate-getlocale.js"></script>
+		<script src="lib/angular-translate-handler-log/angular-translate-handler-log.js"></script>
+		<script src="lib/angular-translate-storage-cookie/angular-translate-storage-cookie.js"></script>
+		<script src="lib/angular-translate-storage-local/angular-translate-storage-local.js"></script>
 
 		<script src="src/config/app.js"></script>
 		<script src="src/config/ga.js"></script>
@@ -67,11 +71,7 @@
 				<div class="col-md-2 col-md-offset-1 col-sm-3"><a href="http://www.google.com/analytics/">Google Analytics</a></div>
 				<div class="col-md-5 col-md-offset-1 col-sm-6">
 					<div class="row">
-						<div class="col-md-4 col-sm-4"><a href="http://www.google.com/calendar/embed?src=tsaikd%40gmail.com" translate>KD Calendar</a></div>
-						<div class="col-md-4 col-sm-4">
-							<a ng-show="github" href="http://www.tsaikd.org/" translate>Original Site</a>
-							<a ng-show="!github" href="http://tsaikd.github.io/www.tsaikd.org/" translate>Backup Site</a>
-						</div>
+						<div class="col-md-4 col-sm-4 col-md-offset-1"><a href="http://www.google.com/calendar/embed?src=tsaikd%40gmail.com" translate>KD Calendar</a></div>
 						<div class="col-md-4 col-sm-4"><a href="https://www.facebook.com/tsaikd">KD Facebook</a></div>
 					</div>
 				</div>

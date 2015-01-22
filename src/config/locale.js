@@ -1,15 +1,15 @@
 app
 
-.config([     "$translateProvider"
-	, function($translateProvider) {
+.config([     "$translateProvider", "$translateGetLocaleProvider"
+	, function($translateProvider,   $translateGetLocaleProvider) {
 
 	$translateProvider
 	.translations("zh_tw", {
 		"KD's Homepage": "KD首頁",
 		"tsaikd's Homepage": "tsaikd個人網頁",
+		"KD Introduction": "KD 簡介",
 		"KD Calendar": "KD 行事曆",
 		"Original Site": "主站台",
-		"Backup Site": "備用站台",
 		"Cheng-Feng Tsai": "蔡程豐",
 		"Cheng-Feng Tsai (TsaiKD)": "蔡程豐 (TsaiKD)",
 		"Old Version": "舊版",
@@ -48,15 +48,11 @@ app
 		"Recent developments": "最近關注項目",
 		"Docker and related tools": "Docker 及其相關工具",
 		"Projects": "專案",
-		"Detail": "細節"
+		"Detail": "細節",
+		"Reference": "參考"
 	});
 
 	var defTrans = {};
-	angular.forEach($translateProvider.translations("zh_tw"), function(v, key) {
-		if (key.match(/{{.*}}/)) {
-			defTrans[key] = key;
-		}
-	});
 	$translateProvider
 	.translations("en", defTrans)
 	.registerAvailableLanguageKeys(["en", "zh_tw"], {
@@ -65,8 +61,9 @@ app
 		"zh_cn": "zh_tw",
 		"zh_hk": "zh_tw"
 	})
-	.useStorage("localStorageService")
-	.determinePreferredLanguage();
+	.useLocalStorage()
+	.useMissingTranslationHandlerLog()
+	.determinePreferredLanguage($translateGetLocaleProvider);
 
 }])
 

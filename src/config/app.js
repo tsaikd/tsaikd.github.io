@@ -1,5 +1,5 @@
 var app = angular.module("app", [
-	"LocalStorageModule",
+	"ngCookies",
 	"pascalprecht.translate"
 ])
 
