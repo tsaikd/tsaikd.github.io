@@ -1,0 +1,6 @@
+/* tsaikd.github.io v0.0.3-aaf9a7 2015-07-04
+ * http://tsaikd.github.io/
+ * License: MIT
+ */
+
+.ellipsis{white-space:nowrap;text-overflow:ellipsis;overflow:hidden}.spinner{display:none;-webkit-animation:spin 2s infinite linear;-moz-animation:spin 2s infinite linear;-ms-animation:spin 2s infinite linear;-o-animation:spin 2s infinite linear;animation:spin 2s infinite linear}.spinner.active{display:inline-block}@-webkit-keyframes spin{0%{-webkit-transform:rotate(0)}100%{-webkit-transform:rotate(360deg)}}@-moz-keyframes spin{0%{-moz-transform:rotate(0)}100%{-moz-transform:rotate(360deg)}}@-ms-keyframes spin{0%{-ms-transform:rotate(0)}100%{-ms-transform:rotate(360deg)}}@-o-keyframes spin{0%{-o-transform:rotate(0)}100%{-o-transform:rotate(360deg)}}@keyframes spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}.avatar{float:right}@media (max-width:650px){.avatar{float:none;margin:auto;display:block}}.block{margin-bottom:2em}.block-header{font-size:1.6em;color:#009}.glyphicon.glyphicon-star{color:#f70}ul.skill{display:inline-block}ul.skill li.leaf{border-bottom:1px solid #999}ul.skill>li{margin-bottom:.5em}@media print{ul.skill{display:block}a[href]:after{display:none}body{font-size:11pt}.avatar{float:right}.block-header *{color:#009!important}.glyphicon.glyphicon-star{color:#f70!important}}
