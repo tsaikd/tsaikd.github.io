@@ -1,0 +1,6 @@
+/* tsaikd.github.io v0.0.3-3c9b70 2017-06-29
+ * http://tsaikd.github.io/
+ * License: MIT
+ */
+
+.ellipsis{white-space:nowrap;text-overflow:ellipsis;overflow:hidden}.spinner{display:none;-webkit-animation:spin 2s infinite linear;-moz-animation:spin 2s infinite linear;-ms-animation:spin 2s infinite linear;-o-animation:spin 2s infinite linear;animation:spin 2s infinite linear}.spinner.active{display:inline-block}@-webkit-keyframes spin{0%{-webkit-transform:rotate(0)}100%{-webkit-transform:rotate(360deg)}}@-moz-keyframes spin{0%{-moz-transform:rotate(0)}100%{-moz-transform:rotate(360deg)}}@-ms-keyframes spin{0%{-ms-transform:rotate(0)}100%{-ms-transform:rotate(360deg)}}@-o-keyframes spin{0%{-o-transform:rotate(0)}100%{-o-transform:rotate(360deg)}}@keyframes spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}.vco-storyjs .container pre{padding:.5em}.vco-storyjs .container .tagsbar{margin-bottom:1em}.vco-storyjs .container .tagsbar .tag{margin-right:.5em}
