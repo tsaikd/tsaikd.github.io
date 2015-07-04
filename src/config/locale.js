@@ -30,7 +30,7 @@ app
 		"Skill and Ability": "專業技能",
 		"Language ability": "語言能力",
 		"English": "英文",
-		"Speek": "說",
+		"Speak": "說",
 		"Read": "讀",
 		"Write": "寫",
 		"Chinese": "中文",
