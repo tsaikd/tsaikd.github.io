@@ -54,16 +54,17 @@ app
 
 	var defTrans = {};
 	$translateProvider
-	.translations("en", defTrans)
-	.registerAvailableLanguageKeys(["en", "zh_tw"], {
-		"en_us": "en",
-		"en_uk": "en",
-		"zh_cn": "zh_tw",
-		"zh_hk": "zh_tw"
-	})
-	.useLocalStorage()
-	.useMissingTranslationHandlerLog()
-	.determinePreferredLanguage($translateGetLocaleProvider);
+		.translations("en", defTrans)
+		.registerAvailableLanguageKeys(["en", "zh_tw"], {
+			"en_us": "en",
+			"en_uk": "en",
+			"zh_cn": "zh_tw",
+			"zh_hk": "zh_tw"
+		})
+		.useSanitizeValueStrategy(null)
+		.useStorage("translateStorage")
+		.useMissingTranslationHandlerLog()
+		.determinePreferredLanguage($translateGetLocaleProvider);
 
 }])
 

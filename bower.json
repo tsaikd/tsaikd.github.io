@@ -11,10 +11,9 @@
   "dependencies": {
     "bootstrap": "*",
     "angular": "*",
-    "angular-translate": "*",
+    "angular-translate-storage": "*",
     "angular-translate-getlocale": "tsaikd/angular-translate-getlocale#master",
     "angular-translate-handler-log": "*",
-    "angular-translate-storage-local": "*",
     "TimelineJS": "*"
   },
   "main": [

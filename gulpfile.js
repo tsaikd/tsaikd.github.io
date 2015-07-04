@@ -1,21 +1,13 @@
-var gulp = require("gulp"),
+var
+	// load dependency
 	dateformat = require("dateformat"),
-	sync = require("gulp-sync")(gulp),
-	rename = require("gulp-rename"),
-	header = require("gulp-header"),
-	templatecache = require("gulp-angular-templatecache"),
-	usemin = require("gulp-usemin"),
-	uglify = require("gulp-uglify"),
-	minifyCss = require("gulp-minify-css"),
-	minifyHtml = require("gulp-minify-html"),
-	replace = require("gulp-replace"),
-	connect = require("gulp-connect"),
-	karma = require("gulp-karma");
+	gulp = require("gulp"),
+	$ = require("gulp-load-plugins")(),
+	merge = require("merge-stream"),
+	runSequence = require("run-sequence"),
 
-var pkg = require("./package.json"),
-
-	// index page path
-	root = ".",
+	// package info
+	pkg = require("./package.json"),
 
 	// list all pages
 	pages = [
@@ -24,133 +16,146 @@ var pkg = require("./package.json"),
 		"kdintrotimeline"
 	];
 
-var banner = [
+if (process.env.BUILDTIME) {
+	pkg.version += "-" + process.env.BUILDTIME;
+}
+if (process.env.GITHASH) {
+	pkg.version += "-" + process.env.GITHASH;
+}
+
+// project config
+var paths = {
+		"tmpl": ["src/**/*.html"]
+	},
+	banner = [
 		"/* " + pkg.name + " v" + pkg.version + " " + dateformat(new Date(), "yyyy-mm-dd"),
 		" * " + pkg.homepage,
 		" * License: " + pkg.license,
 		" */\n\n"
 	].join("\n"),
-	paths = {
-		"tmpl": [root+"/src/**/*.html"],
-		"js": ["!**/*.tmp.js", "!**/*.test.js", "!"+root+"/src/**/*.min.js", root+"/src/**/*.js"],
-		"css": ["!"+root+"/src/**/*.min.css", root+"/src/**/*.css"],
-		"test": ["!**/*.tmp.js",
-			root+"/lib/angular/angular.js",
-			root+"/lib/angular-mocks/angular-mocks.js",
-			root+"/lib/angular-local-storage/angular-local-storage.js",
-			root+"/lib/angular-translate/angular-translate.js",
-			root+"/src/**/*.js"]
-	},
-	ngModule = pkg.name;
+	useminOpt = function() {
+		return {
+			css: [
+				$.minifyCss(),
+				$.insert.prepend(banner)
+			],
+			js: [
+				$.insert.wrap("(function(){", "})();"),
+				$.uglify(),
+				$.insert.prepend(banner)
+			],
+			html: [
+				$.replace("lib/jquery/dist/jquery.js", "lib/jquery/dist/jquery.min.js"),
+				$.replace("lib/angular/angular.js", "lib/angular/angular.min.js"),
+				$.replace("lib/TimelineJS/build/js/timeline.js", "lib/TimelineJS/build/js/timeline-min.js"),
+				$.minifyInline(),
+				$.minifyHtml({ empty: true })
+			],
+			enableHtmlComment: true
+		};
+	};
 
-// generate path of pages
-pages.forEach(function(page) {
-	var name = page + ".src.html";
-	paths[name] = paths[name] || [];
-	paths[name].push(root + "/" + name);
+gulp.task("default", ["build"]);
 
-	name = page + ".html";
-	paths[name] = paths[name] || [];
-	paths[name].push(root + "/" + name);
+gulp.task("dev", ["watch"]);
+
+gulp.task("up", ["update-npm", "update-bower"]);
+
+gulp.task("build", function(done) {
+	runSequence(
+		// stage 1: build resource
+		["tmpl", "bower.json", "jshint", "static"],
+
+		// stage 2: build pages
+		["page"],
+
+		done);
 });
 
-gulp.task("build", sync.sync([
-	// stage 1: build resource
-	["css", "js", "tmpl", "bower.json"],
-
-	// stage 2: build pages sources
-	pages.map(function(page) { return page + ".src.html"; }),
-
-	// stage 3: build release pages
-	pages.map(function(page) { return page + ".html"; })
-]));
-
-gulp.task("default", sync.sync([
-	["build"],
-	["watch"]
-]));
-
-gulp.task("css", function(done) {
-	gulp.src(paths.css)
-		.pipe(connect.reload())
-		.on("end", done);
-});
-
-gulp.task("js", function(done) {
-	gulp.src(paths.js)
-		.pipe(connect.reload())
-		.on("end", done);
-});
-
-gulp.task("tmpl", function(done) {
-	gulp.src(paths.tmpl)
-		.pipe(templatecache("angular-template.tmp.js", {
-			module: ngModule,
+gulp.task("tmpl", function() {
+	return gulp.src(paths.tmpl)
+		.pipe($.angularTemplatecache("angular-template.tmp.js", {
+			templateHeader: 'app.run(["$templateCache", function($templateCache) {',
 			root: "src"
 		}))
-		.pipe(gulp.dest(root+"/src/"))
-		.pipe(connect.reload())
-		.on("end", done);
+		.pipe(gulp.dest("src"))
+		.pipe($.size({"title": "angular-template.tmp.js"}));
 });
 
-// generate task of pages
-pages.forEach(function(page) {
-	(function(page) {
-		var name = page + ".src.html";
-		gulp.task(name, function(done) {
-			gulp.src(paths[name])
-				.pipe(rename({ basename: page }))
-				.pipe(gulp.dest(root))
-				.pipe(connect.reload())
-				.on("end", done);
-		});
-	})(page);
-
-	(function(page) {
-		var name = page + ".html";
-		gulp.task(name, function(done) {
-			gulp.src(paths[name])
-				.pipe(usemin({
-					css: [
-						minifyCss(),
-						header(banner)
-					],
-					js: [
-						replace(/\.version = \"0\";/, ".version = \"" + pkg.version + "\""),
-						uglify(),
-						header(banner)
-					],
-					html: [
-						minifyHtml({ empty: true })
-					],
-					enableHtmlComment: true
-				}))
-				.pipe(gulp.dest(root))
-				.pipe(connect.reload())
-				.on("end", done);
-		});
-	})(page);
+gulp.task("page", function() {
+	var tasks = pages.map(function(page) {
+		return gulp.src(page + ".src.html")
+			.pipe($.rename({ basename: page }))
+			.pipe($.usemin(useminOpt()))
+			.pipe(gulp.dest("./"))
+			.pipe($.size({"title": page + " page", "showFiles": true}));
+	});
+	return merge(tasks);
 });
 
-gulp.task("bower.json", function(done) {
-	gulp.src(["bower.json"])
-		.pipe(replace(/"version": "[^"]*"/, "\"version\": \"" + pkg.version + "\""))
-		.pipe(gulp.dest("./"))
-		.on("end", done);
+gulp.task("jshint", function() {
+	return gulp.src(["!**/*.tmp.js", "!src/config/appInject.js", "!src/config/ga.js", "*.js", "src/**/*.js"])
+		.pipe($.jshint({
+			laxcomma: true
+		}))
+		.pipe($.jshint.reporter("default"))
+		.pipe($.jshint.reporter("fail"))
+		.pipe($.jscs());
+});
+
+gulp.task("bower.json", function() {
+	return gulp.src(["bower.json"])
+		.pipe($.replace(/"name": "[^"]*"/, "\"name\": \"" + pkg.name + "\""))
+		.pipe(gulp.dest("./"));
+});
+
+gulp.task("static", function() {
+	var taskImage = gulp.src(["src/static/**/*.png"])
+		.pipe($.imagemin())
+		.pipe(gulp.dest("public/static"));
+	var taskOther = gulp.src(["!src/static/**/*.png", "src/static/**"])
+		.pipe(gulp.dest("public/static"));
+	return merge([taskImage, taskOther]);
+});
+
+gulp.task("update-npm", function(done) {
+	var cmd = "sh -c './node_modules/npm-check-updates/bin/npm-check-updates -u'";
+	$.run(cmd).exec().on("end", done);
+});
+
+gulp.task("update-bower", function(done) {
+	var bowerjson = require("./bower.json");
+	var deps = [];
+	var i, cmd;
+
+	for (i in bowerjson.dependencies) {
+		deps.push(i);
+	}
+	cmd = "bower install --save --force-latest " + deps.join(" ");
+	$.run(cmd).exec().on("end", done);
 });
 
 gulp.task("watch", function() {
-	["tmpl", "css", "js"].forEach(function(i) {
-		gulp.watch(paths[i], [i]);
+	var watchs = ["src/**"];
+	pages.map(function(page) {
+		watchs.push(page + ".src.html");
 	});
-	pages.forEach(function(page) {
-		var name = page + ".src.html";
-		gulp.watch(paths[name], [name]);
+	gulp.watch(watchs, function(info) {
+		gulp.src(info.path)
+			.pipe($.connect.reload());
 	});
-	connect.server({
-		root: root,
+	$.connect.server({
+		root: "./",
 		port: 9000,
-		livereload: true
+		livereload: true,
+		middleware: function(connect, opt) {
+			return [
+				function(req, res, next) {
+					$.util.log(req.method, req.url);
+					next();
+				}
+			];
+		}
 	});
 });
 
