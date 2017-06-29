@@ -27,6 +27,7 @@ app
 		"Foxconn": "鴻海",
 		"Want-Want-China-Times-Group": "旺旺中時媒體集團",
 		"Scienbizip": "賽恩倍吉",
+		"Milkr": "謀客股份有限公司",
 		"Skill and Ability": "專業技能",
 		"Language ability": "語言能力",
 		"English": "英文",
@@ -45,8 +46,6 @@ app
 		"Development tools": "開發工具",
 		"Database and Index": "資料庫與索引",
 		"System Architecture": "系統架構",
-		"Recent developments": "最近關注項目",
-		"Docker and related tools": "Docker 及其相關工具",
 		"Projects": "專案",
 		"Detail": "細節",
 		"Reference": "參考"
